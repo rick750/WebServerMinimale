@@ -50,11 +50,11 @@ def handle_client(conn, addr):
         # Read file content in binary mode
         with open(full_path, 'rb') as f:
             body = f.read()
-        # Determine MIME type based on file extension, fallback to octet-stream
+        # Determine MIME type
         mime_type, _ = mimetypes.guess_type(full_path)
         content_type = mime_type or 'application/octet-stream'
 
-        # Build HTTP 200 OK response header
+        # Response 200
         header = (
             "HTTP/1.1 200 OK\r\n"
             f"Content-Type: {content_type}\r\n"
@@ -64,6 +64,7 @@ def handle_client(conn, addr):
         status = 200
 
     else:
+        # Response 404
         body = b'<h1>404 Not Found</h1>\
             <a href=\"/\">Go to Home<//a>'
         header = (
@@ -73,11 +74,10 @@ def handle_client(conn, addr):
             "\r\n"
         ).encode()
         status = 404
-
+    # Collection's close
     conn.sendall(header + body)
     conn.close()
     logging.info(f"{addr} {method} {path} -> {status}")
-
 
 def run():
     with socket.socket() as server_sock:
