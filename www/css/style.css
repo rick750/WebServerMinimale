@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+  
+  header {
+    background: #d3cece;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+  }
+  
+  main {
+    max-width: 600px;
+    margin: auto;
+  }
+
+  
