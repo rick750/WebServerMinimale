@@ -5,6 +5,9 @@ Created on Thu May  8 17:24:21 2025
 @author: Riccardo CARTA (riccardo.carta2@studio.unibo.it), Matricola 0001115294
 """
 
+'''
+Imports
+'''
 import socket
 import os
 import threading
@@ -79,6 +82,9 @@ def handle_client(conn, addr):
     conn.close()
     logging.info(f"{addr} {method} {path} -> {status}")
 
+'''
+Execution loop
+'''
 def run():
     with socket.socket() as server_sock:
         # Socket set-up
@@ -97,4 +103,4 @@ def run():
 
 
 if __name__ == '__main__':
-    run()  # Entry point: start the server
+    run()  # Entry point to start the server
