@@ -16,7 +16,7 @@ from urllib.parse import unquote
 import mimetypes
 
 # Server configuration
-HOST = '127.0.0.1'
+HOST = 'localhost'
 PORT = 8080
 FOLDER_ROOT = os.path.abspath('www')
 # Configure basic logging to console
@@ -69,7 +69,7 @@ def handle_client(conn, addr):
     else:
         # Response 404
         body = b'<h1>404 Not Found</h1>\
-            <a href=\"/\">Go to Home<//a>'
+            <a href=\"/\">Go to Home</a>'
         header = (
             "HTTP/1.1 404 Not Found\r\n"
             "Content-Type: text/html\r\n"
